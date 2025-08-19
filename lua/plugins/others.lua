@@ -69,20 +69,23 @@ return {
         dependencies = { 'nvim-lua/plenary.nvim' },
         opts = { signs = false }
     },
-    
+
     {
         'echasnovski/mini.nvim',
-        config = function ()
+        config = function()
             -- require("mini.surround").setup()
             -- require("mini.animate").setup()
         end
     },
     {
         'olimorris/persisted.nvim',
-        event = 'BufReadPre',
-        opts = {
-            autoload = true,
-        }
-    }
-
+        event = 'VeryLazy',
+        config = function()
+            opts = {
+                autoload = true,
+            }
+            require('persisted').setup(opts)
+        end
+    },
+    { 'mbbill/undotree' },
 }

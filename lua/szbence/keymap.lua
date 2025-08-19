@@ -6,7 +6,7 @@ vim.keymap.set('n', 'Q', '')
 
 vim.keymap.set('n', '<leader>f', function()
     vim.lsp.buf.format()
-end, {desc = 'Format file'})
+end, { desc = 'Format file' })
 
 vim.keymap.set('n', '<Esc>', "<cmd>nohlsearch<CR>")
 
@@ -68,3 +68,4 @@ vim.keymap.set('v', '<leader>p', '"+p', { desc = 'Pasting from system clipboard'
 vim.keymap.set('n', '<leader>d', '"_d', { desc = 'Deleting to void' })
 vim.keymap.set('v', '<leader>d', '"_d', { desc = 'Deleting to void' })
 
+vim.keymap.set('n', '<leader>u', ':UndotreeToggle<CR>', { desc = 'Toggle Undotree' })

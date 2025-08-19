@@ -27,7 +27,7 @@ return {
 
             callback = function(event)
                 -- for debugging (mostly)
-                print('Lsp attached')
+                -- print('Lsp attached')
                 -- small macro for keybindings
                 local map = function(keys, func, desc, mode)
                     mode = mode or 'n'
