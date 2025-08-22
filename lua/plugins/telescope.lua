@@ -35,7 +35,7 @@ return {
         vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
         vim.keymap.set('n', '<C-f>', builtin.current_buffer_fuzzy_find, { desc = 'Find in this buffer' })
         vim.keymap.set('n', '<leader>fq', builtin.quickfix, {desc = "[F]ind in [Q]uickfix list"})
-        vim.keymap.set('n', '<leader>fs', ":Telescope persisted", {desc = "[F]ind in [S]ession list"})
+        vim.keymap.set('n', '<leader>fs', ":Telescope persisted<CR>", {desc = "[F]ind in [S]ession list"})
 
         -- finding in conf files
         vim.keymap.set('n', '<leader>fn', function()

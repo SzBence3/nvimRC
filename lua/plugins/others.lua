@@ -77,15 +77,28 @@ return {
             -- require("mini.animate").setup()
         end
     },
-    {
-        'olimorris/persisted.nvim',
-        event = 'VeryLazy',
-        config = function()
-            opts = {
-                autoload = true,
-            }
-            require('persisted').setup(opts)
-        end
-    },
+    -- {
+    --     'olimorris/persisted.nvim',
+    --     event = 'VeryLazy',
+    --     config = function()
+    --         opts = {
+    --             autoload = true,
+    --         }
+    --         require('persisted').setup(opts)
+    --     end
+    -- },
     { 'mbbill/undotree' },
+    {
+        'ThePrimeagen/harpoon',
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'nvim-telescope/telescope.nvim',
+        },
+        config = function ()
+            require('telescope').load_extension('harpoon')
+            require('harpoon').setup({
+                save_on_toggle = true,
+            })
+        end
+    }
 }

@@ -5,7 +5,7 @@ return {
 
         local servers = {}
         local opts = {
-            ensure_installed = { "clangd", "lua_ls", "pyright", "ts_ls" },
+            ensure_installed = { "clangd", "lua_ls", "pyright", "ts_ls", "cmake" },
             automatic_installation = true,
             -- automat1ic_enable = true,
             handlers = {

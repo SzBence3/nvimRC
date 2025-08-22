@@ -17,9 +17,9 @@ vim.api.nvim_create_autocmd("User", {
     end,
 })
 
--- vim.api.nvim_create_autocmd("User", {
---     pattern = "PersistedLoadPost",
---     callback = function(session)
---         print('Session Loaded')
---     end,
--- })
+vim.api.nvim_create_autocmd("User", {
+    pattern = "PersistedLoadPost",
+    callback = function(session)
+        print('Session Loaded')
+    end,
+})

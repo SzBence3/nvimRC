@@ -10,10 +10,10 @@ end, { desc = 'Format file' })
 
 vim.keymap.set('n', '<Esc>', "<cmd>nohlsearch<CR>")
 
-vim.keymap.set('v', '<C-j>', ":m '>+1<CR>gv=gv")
-vim.keymap.set('v', '<C-k>', ":m '<-2<CR>gv=gv")
-vim.keymap.set('n', '<C-j>', "V:m '>+1<CR>==")
-vim.keymap.set('n', '<C-k>', "V:m '<-2<CR>==")
+vim.keymap.set('v', '<M-j>', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', '<M-k>', ":m '<-2<CR>gv=gv")
+vim.keymap.set('n', '<M-j>', "V:m '>+1<CR>==")
+vim.keymap.set('n', '<M-k>', "V:m '<-2<CR>==")
 
 local function feedkeys(keys)
     vim.api.nvim_feedkeys(
@@ -69,3 +69,10 @@ vim.keymap.set('n', '<leader>d', '"_d', { desc = 'Deleting to void' })
 vim.keymap.set('v', '<leader>d', '"_d', { desc = 'Deleting to void' })
 
 vim.keymap.set('n', '<leader>u', ':UndotreeToggle<CR>', { desc = 'Toggle Undotree' })
+
+--NOTE: Harpoon config
+
+vim.keymap.set('n', '<leader>ha',function () require("harpoon.mark").add_file() end, {desc = "Mark File (Harpoon)"})
+
+
+-- vim.keymap.set('n', '<leader>ss', )
