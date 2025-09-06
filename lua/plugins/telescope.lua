@@ -29,7 +29,7 @@ return {
         vim.keymap.set('n','<leader>fh',builtin.help_tags, { desc = "[F]ind [H]elp" })
         vim.keymap.set('n','<leader>fg',builtin.live_grep, { desc = "Live [G]rep" })
         vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = '[F]ind [K]eymaps' })
-        vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc ='[F]ind current [W]ord' })
+        vim.keymap.set('n', '<leader>fcw', builtin.grep_string, { desc ='[F]ind [C]urrent [W]ord' })
         vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = '[F]ind [D]iagnostics' })
         vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = '[F]ind [R]esume' })
         vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })

@@ -4,7 +4,7 @@ vim.g.mapleader = " "
 vim.keymap.set('n', '<Leader>e', ":Ex<CR>", {})
 vim.keymap.set('n', 'Q', '')
 
-vim.keymap.set('n', '<leader>f', function()
+vim.keymap.set('n', '<leader>s', function()
     vim.lsp.buf.format()
 end, { desc = 'Format file' })
 
@@ -18,7 +18,7 @@ vim.keymap.set('n', '<M-k>', "V:m '<-2<CR>==")
 local function feedkeys(keys)
     vim.api.nvim_feedkeys(
         vim.api.nvim_replace_termcodes(keys, true, false, true),
-        "n", -- mode: "n" = normal input, "i" = insert, "v" = visual
+        "n", -- mode: "n" = normal input, "i" = insert, "v" = visual,
         true -- escape CSI (recommended)
     )
 end
@@ -72,7 +72,17 @@ vim.keymap.set('n', '<leader>u', ':UndotreeToggle<CR>', { desc = 'Toggle Undotre
 
 --NOTE: Harpoon config
 
-vim.keymap.set('n', '<leader>ha',function () require("harpoon.mark").add_file() end, {desc = "Mark File (Harpoon)"})
+vim.keymap.set('n', '<leader>ha', function() require("harpoon.mark").add_file() end, { desc = "Mark File (Harpoon)" })
+
+vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
+    expr = true,
+    replace_keycodes = false
+})
+vim.g.copilot_no_tab_map = true
+
+-- CodeCompanion keymaps
+vim.keymap.set('n', '<leader>cc', ':CodeCompanionChat Toggle<CR>', { desc = 'Toggle CodeCompanion Chat' })
+vim.keymap.set('vn', '<leader>ci', ':CodeCompanionChat #{buffer} ', { desc = 'Open inline CodeCompanion' })
+vim.keymap.set('vn', '<leader>ck', ':CodeCompanionCmd ', { desc = 'Open cmd CodeCompanion' })
 
 
--- vim.keymap.set('n', '<leader>ss', )
