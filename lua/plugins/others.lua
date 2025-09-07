@@ -88,17 +88,4 @@ return {
     --     end
     -- },
     { 'mbbill/undotree' },
-    {
-        'ThePrimeagen/harpoon',
-        dependencies = {
-            'nvim-lua/plenary.nvim',
-            'nvim-telescope/telescope.nvim',
-        },
-        config = function ()
-            require('telescope').load_extension('harpoon')
-            require('harpoon').setup({
-                save_on_toggle = true,
-            })
-        end
-    }
 }

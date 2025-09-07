@@ -74,15 +74,15 @@ vim.keymap.set('n', '<leader>u', ':UndotreeToggle<CR>', { desc = 'Toggle Undotre
 
 vim.keymap.set('n', '<leader>ha', function() require("harpoon.mark").add_file() end, { desc = "Mark File (Harpoon)" })
 
-vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
-    expr = true,
-    replace_keycodes = false
-})
 vim.g.copilot_no_tab_map = true
 
 -- CodeCompanion keymaps
-vim.keymap.set('n', '<leader>cc', ':CodeCompanionChat Toggle<CR>', { desc = 'Toggle CodeCompanion Chat' })
-vim.keymap.set('vn', '<leader>ci', ':CodeCompanionChat #{buffer} ', { desc = 'Open inline CodeCompanion' })
-vim.keymap.set('vn', '<leader>ck', ':CodeCompanionCmd ', { desc = 'Open cmd CodeCompanion' })
+vim.keymap.set('n', '<leader>ct', ':CodeCompanionChat Toggle<CR>', { desc = 'Toggle CodeCompanion Chat' })
+
+vim.keymap.set('n', '<leader>ci', ':CodeCompanionChat #{buffer} ', { desc = 'Open inline CodeCompanion' })
+
+vim.keymap.set('n', '<leader>ck', ':CodeCompanionCmd ', { desc = 'Open cmd CodeCompanion' })
+vim.keymap.set('v', '<leader>ck', ':CodeCompanionCmd ', { desc = 'Open cmd CodeCompanion' })
+
 
 
