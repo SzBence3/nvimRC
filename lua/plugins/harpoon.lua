@@ -12,6 +12,11 @@ return {
 
             vim.keymap.set('n', '<leader>a', function() harpoon:list():add() end, { desc = "Mark File (Harpoon)" })
             vim.keymap.set('n', '<leader>r', function() harpoon:list():remove() end, { desc = "Mark File (Harpoon)" })
+            vim.keymap.set('n', '<leader>hc', function() harpoon:list():clear() end, { desc = "Mark File (Harpoon)" })
+
+
+            vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
+            vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
 
             -- NOTE: basic telescope configuration
             local conf = require("telescope.config").values
