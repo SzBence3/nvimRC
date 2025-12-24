@@ -5,9 +5,9 @@ return {
 
         local servers = {}
         local opts = {
-            ensure_installed = { "clangd", "lua_ls", "pyright", "ts_ls", "cmake" },
+            ensure_installed = { "sqlls","clangd", "lua_ls", "pyright", "ts_ls", "cmake", "rust_analyzer", "html", "cssls", "jsonls", "bashls", "yamlls"},
             automatic_installation = true,
-            -- automat1ic_enable = true,
+            -- automatic_enable = true,
             handlers = {
                 function(server_name)
                     local server = servers[server_name] or {}
@@ -34,15 +34,15 @@ return {
                     vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
                 end
 
-                map('grn', vim.lsp.buf.rename, '[R]e[N]ame')
+                map('gR', vim.lsp.buf.rename, '[R]e[N]ame')
                 map('ga', vim.lsp.buf.code_action, 'code [A]ction')
                 map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
                 local builtin = require("telescope.builtin")
                 map('gd', builtin.lsp_definitions, '[G]oto [D]efinition')
                 map('gi', builtin.lsp_implementations, '[G]oto [I]mplemtation')
                 map('gr', builtin.lsp_references, '[G]oto [R]eferences')
-                map('g0', builtin.lsp_document_symbols, 'Open Document Symbols')
-                map('gw', builtin.lsp_dynamic_workspace_symbols, 'Open [W]orkspace Symbols')
+                map('gs', builtin.lsp_document_symbols, 'Open Document Symbols')
+                map('gws', builtin.lsp_dynamic_workspace_symbols, 'Open [W]orkspace Symbols')
                 map('gt', builtin.lsp_type_definitions, '[G]oto [T]ype')
                 -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
                 ---@param client vim.lsp.Client
@@ -87,6 +87,7 @@ return {
                 end
 
                 if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
+                    vim.lsp.inlay_hint.enable(true)
                     map('<leader>th', function()
                         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
                     end, '[T]oggle Inlay [H]ints')

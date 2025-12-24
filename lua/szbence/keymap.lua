@@ -32,7 +32,7 @@ local function surroundWith(s)
             feedkeys("dkA " .. s .. "<Left><CR><Esc>==kp1V=gv")
         else -- sdfszevasz sdf
             feedkeys("I" .. string.sub(s, 1, 1) .. "<Esc>gvA" .. string.sub(s, 2, 2) .. "<Esc>gv")
-        end  -- sadfszevasz asd
+        end  -- sadfszevasz asdf
     end
 end
 
@@ -70,7 +70,27 @@ vim.keymap.set('v', '<leader>d', '"_d', { desc = 'Deleting to void' })
 
 vim.keymap.set('n', '<leader>u', ':UndotreeToggle<CR>', { desc = 'Toggle Undotree' })
 
---NOTE: Harpoon config
+local function is_cursor_between_brackets()
+    local line = vim.api.nvim_get_current_line()
+    local col = vim.fn.col('.') -- 1-based index
+    if col <= 1 or col > #line then
+        return false
+    end
+    local before = line:sub(col - 1, col - 1)
+    local after = line:sub(col, col)
+    local pairs = { ["("] = ")", ["["] = "]", ["{"] = "}" }
+    return pairs[before] == after
+end
+
+vim.keymap.set('i', '<CR>',function()
+    if is_cursor_between_brackets() then
+        return '<CR><Esc>O'
+    else
+        return '<CR>'
+    end
+end , { expr = true, desc = 'Auto indent on Enter' })
+
+-- NOTE: Harpoon config
 
 vim.keymap.set('n', '<leader>ha', function() require("harpoon.mark").add_file() end, { desc = "Mark File (Harpoon)" })
 

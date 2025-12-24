@@ -4,7 +4,7 @@ return {
     dependencies={
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope-ui-select.nvim",
-        'olimorris/persisted.nvim',
+        -- 'olimorris/persisted.nvim',
         {
             "nvim-telescope/telescope-fzf-native.nvim",
             build = "make",
@@ -20,7 +20,7 @@ return {
         }
         pcall(require('telescope').load_extension, 'fzf')
         pcall(require('telescope').load_extension, 'ui-select')
-        pcall(require('telescope').load_extension, 'persisted')
+        -- pcall(require('telescope').load_extension, 'persisted')
 
         local builtin = require("telescope.builtin")
 
@@ -35,7 +35,7 @@ return {
         vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
         vim.keymap.set('n', '<C-f>', builtin.current_buffer_fuzzy_find, { desc = 'Find in this buffer' })
         vim.keymap.set('n', '<leader>fq', builtin.quickfix, {desc = "[F]ind in [Q]uickfix list"})
-        vim.keymap.set('n', '<leader>fs', ":Telescope persisted<CR>", {desc = "[F]ind in [S]ession list"})
+        -- vim.keymap.set('n', '<leader>fs', ":Telescope persisted<CR>", {desc = "[F]ind in [S]ession list"})
 
         -- finding in conf files
         vim.keymap.set('n', '<leader>fn', function()
