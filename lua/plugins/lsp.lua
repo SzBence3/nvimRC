@@ -4,8 +4,17 @@ return {
         local capabilities = require('blink.cmp').get_lsp_capabilities()
 
         local servers = {}
+        servers['hyprls'] = {
+            cmd = {"hyprls"},
+            settings = {
+                hyprls = {
+                    preferIgnoreFile = false,
+                    ignore = {"hyprlock.conf", "hypridle.conf"}
+                }
+            }
+        }
         local opts = {
-            ensure_installed = { "sqlls","clangd", "lua_ls", "pyright", "ts_ls", "cmake", "rust_analyzer", "html", "cssls", "jsonls", "bashls", "yamlls"},
+            ensure_installed = {"hyprls", "sqlls","clangd", "lua_ls", "pyright", "ts_ls", "rust_analyzer", "html", "cssls", "jsonls", "bashls", "yamlls"},
             automatic_installation = true,
             -- automatic_enable = true,
             handlers = {
